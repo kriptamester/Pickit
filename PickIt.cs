@@ -720,7 +720,8 @@ namespace PickIt
         private bool CanLazyLoot()
         {
             if (!Settings.LazyLooting) return false;
-            if (DisableLazyLootingTill > DateTime.Now) return false;
+            if (Settings.LazyLooting && !Input.GetKeyState(Settings.LazyLootingPauseKey)) return true;
+            // if (DisableLazyLootingTill > DateTime.Now) return false;
             
             return true;
         }
